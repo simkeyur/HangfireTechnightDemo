@@ -3,3 +3,6 @@
 ################################################################################
 
 /.vs/TechnightAppJob/v16/Server/sqlite3
+/HangfireDashboard/bin
+/HangfireService/bin/Debug
+/HangfireService/obj/Debug
