@@ -28,7 +28,7 @@ namespace HangfireService
         //private int ADMIN_ROLE = 0;
 
         // Eventlog
-        EventLog _eventLog;
+        //EventLog //_eventLog;
         private static readonly ILog _log = LogManager.GetLogger(nameof(BackgroundService));
 
         private const string SERVICE_NAME = "Background Service";
@@ -43,14 +43,14 @@ namespace HangfireService
         {
             try
             {
-                _eventLog = new EventLog();
+                //_eventLog = new EventLog();
                 if (!EventLog.SourceExists(SERVICE_NAME))
                 {
                     EventLog.CreateEventSource(
                         SERVICE_NAME, LOG_NAME);
                 }
-                _eventLog.Source = SERVICE_NAME;
-                _eventLog.Log = LOG_NAME;
+                //_eventLog.Source = SERVICE_NAME;
+                //_eventLog.Log = LOG_NAME;
             }
             catch (Exception ex)
             {
@@ -124,7 +124,7 @@ namespace HangfireService
         {
             //Start
             _log.Info("Starting TN App Job Service...");
-            _eventLog.WriteEntry("Starting TN App Job Service...");
+            ////_eventLog.WriteEntry("Starting TN App Job Service...");
             //Initialize Job server
             InitializeJobServer();
 
@@ -145,7 +145,7 @@ namespace HangfireService
         {
             //Stop
             _log.Info("Stopping TN App Job Service...");
-            _eventLog.WriteEntry("Stopping TN App Job Service !");
+           // //_eventLog.WriteEntry("Stopping TN App Job Service !");
             //Dispose the service
             _jobServer.Dispose();
         }
@@ -153,7 +153,7 @@ namespace HangfireService
         {
             //Stop
             _log.Info("Continuing TN App Job Service...");
-            _eventLog.WriteEntry("Continuing TN App Job Service...");
+            ////_eventLog.WriteEntry("Continuing TN App Job Service...");
             //Initialize Job server
             InitializeJobServer();
         }
